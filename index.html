@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Dearest Denisha</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="hearts-container"></div>
+
+    <div class="container main-container d-flex align-items-center justify-content-center">
+
+        <!-- Step 1: Intro -->
+        <div id="step-1" class="wizard-step active-step text-center">
+            <h1 class="display-3 title-font animate__animated animate__heartBeat">Hey Denisha...</h1>
+            <p class="lead mt-4 animate__animated animate__fadeIn animate__delay-1s">I have something special to tell
+                you.</p>
+            <button class="btn btn-custom mt-5 animate__animated animate__fadeInUp animate__delay-2s"
+                onclick="nextStep(2)">Start the Journey ❤️</button>
+        </div>
+
+        <!-- Step 2: Emotional Note -->
+        <div id="step-2" class="wizard-step text-center d-none">
+            <h2 class="title-font animate__animated animate__fadeInDown">Our Journey of Life</h2>
+            <div class="card glass-card mx-auto mt-4 p-4 animate__animated animate__zoomIn">
+                <!-- Pumpkin & Football Animation -->
+                <img src="pumpkin_football_faces_blend.png"
+                    class="img-fluid rounded mb-3 animate__animated animate__bounceIn" style="max-height: 250px;"
+                    alt="The Pumpkin and The Football">
+                <p class="story-text">
+                    Like a Pumpkin and a Football on a journey together...
+                    Since the moment you walked into my life, everything became brighter.
+                    You are not just my wife; you are my best friend, my confidence, and my greatest adventure.
+                </p>
+            </div>
+            <button class="btn btn-custom mt-5 animate__animated animate__fadeInUp" onclick="nextStep(3)">See Moving
+                Memories 📸</button>
+        </div>
+
+        <!-- Step 3: Photo Gallery -->
+        <div id="step-3" class="wizard-step text-center d-none">
+            <h2 class="title-font mb-4 animate__animated animate__fadeInDown">Our Beautiful Moments</h2>
+
+            <div id="photoCarousel" class="carousel slide glass-card p-2 mx-auto" data-bs-interval="false"
+                data-bs-wrap="false">
+                <div class="carousel-inner" id="carousel-images">
+                    <!-- Added Photos - Reordered -->
+
+                    <!-- 1. The Beginning -->
+                    <div class="carousel-item active">
+                        <img src="from this.jpg" class="d-block w-100 rounded" alt="How it started">
+                        <div class="carousel-caption d-none d-md-block glass-caption">
+                            <h5>How it started...</h5>
+                            <p>The beginning of our beautiful journey.</p>
+                        </div>
+                    </div>
+
+                    <!-- 2. The Growth -->
+                    <div class="carousel-item">
+                        <img src="from small to large size.jpg" class="d-block w-100 rounded" alt="How we grew">
+                        <div class="carousel-caption d-none d-md-block glass-caption">
+                            <h5>...and how we've grown!</h5>
+                            <p>Every step with you has been a blessing.</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Moments of Respect -->
+                    <div class="carousel-item">
+                        <img src="Respect.jpeg" class="d-block w-100 rounded" alt="Respect">
+                        <div class="carousel-caption d-none d-md-block glass-caption">
+                            <h5>Respect & Love</h5>
+                            <p>Building our life on a foundation of mutual respect.</p>
+                        </div>
+                    </div>
+
+                    <!-- 4. Supporting Each Other -->
+                    <div class="carousel-item">
+                        <img src="I lost still happy for your win.jpeg" class="d-block w-100 rounded"
+                            alt="Happy for your win">
+                        <div class="carousel-caption d-none d-md-block glass-caption">
+                            <h5>Your Win is My Win</h5>
+                            <p>Seeing you shine is my greatest victory.</p>
+                        </div>
+                    </div>
+
+                    <!-- 5. Until Death (Pyre) -->
+                    <div class="carousel-item">
+                        <img src="until_death_pyre.png" class="d-block w-100 rounded" alt="Until Death Separates Us">
+                        <div class="carousel-caption d-none d-md-block glass-caption">
+                            <h5>Until Death Separates Us</h5>
+                            <p>My love for you is eternal, beyond this life. 🔥</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Controls removed for wizard flow -->
+            </div>
+
+            <p class="text-muted mt-3 small">You make every picture perfect.</p>
+            <button id="gallery-btn" class="btn btn-custom mt-4 animate__animated animate__fadeInUp"
+                onclick="nextPhotoOrStep()">Next Memory ❤️</button>
+        </div>
+
+        <!-- Step 4: The Question -->
+        <div id="step-4" class="wizard-step text-center d-none position-relative">
+            <h1 class="title-font animate__animated animate__pulse animate__infinite text-danger">Denisha, Do You Love
+                Me?</h1>
+            <div class="mt-5 d-flex justify-content-center align-items-center gap-4 position-relative button-area">
+                <button class="btn btn-yes btn-lg" onclick="handleYes()">YES! ❤️</button>
+                <button id="no-btn" class="btn btn-no btn-lg">NO 😢</button>
+            </div>
+        </div>
+
+        <!-- Step 5: Success -->
+        <div id="step-5" class="wizard-step text-center d-none">
+            <h1 class="display-1 animate__animated animate__tada">YAY!!! 🎉</h1>
+            <h2 class="title-font mt-3">I Knew It!</h2>
+            <p class="lead mt-4">I Love You So Much!</p>
+            <div class="mt-5">
+                <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Celebration"
+                    class="rounded shadow-lg img-fluid" style="max-height: 300px;">
+            </div>
+            <button class="btn btn-custom mt-5" onclick="location.reload()">Replay ❤️</button>
+        </div>
+
+    </div>
+
+    <!-- Instructions for the User file -->
+    <div class="alert alert-info position-fixed bottom-0 start-0 m-3 d-none" id="img-instructions">
+        <strong>Tip:</strong> Replace the placeholder images in index.html with your own files!
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

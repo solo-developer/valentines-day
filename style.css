@@ -1,0 +1,185 @@
+:root {
+    --primary-color: #ff4d6d;
+    --secondary-color: #ff8fa3;
+    --bg-gradient: linear-gradient(135deg, #fff0f3 0%, #ffccd5 100%);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --text-color: #590d22;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-gradient);
+    height: 100vh;
+    overflow: hidden;
+    /* Prevent scrolling, handle inside wizard */
+    margin: 0;
+    color: var(--text-color);
+}
+
+.title-font {
+    font-family: 'Dancing Script', cursive;
+    color: var(--primary-color);
+}
+
+.main-container {
+    height: 100vh;
+    position: relative;
+    z-index: 10;
+}
+
+/* Wizard Steps */
+.wizard-step {
+    width: 100%;
+    max-width: 800px;
+    /* Steps are hidden by d-none in HTML, handled by JS */
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.story-text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* Custom Buttons */
+.btn-custom {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+}
+
+.btn-custom:hover {
+    background: #c9184a;
+    transform: translateY(-2px);
+    color: white;
+    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.6);
+}
+
+/* Question Buttons */
+.btn-yes {
+    background-color: #28a745;
+    color: white;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    border: none;
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+    transition: transform 0.2s;
+}
+
+.btn-yes:hover {
+    transform: scale(1.1);
+    background-color: #218838;
+}
+
+.btn-no {
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    border: none;
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+    position: absolute;
+    /* Crucial for moving it around */
+    transition: all 0.1s ease-out;
+    /* Fast transition for smooth movement */
+}
+
+/* Floating Hearts Background */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    bottom: -100px;
+    background-color: rgba(255, 77, 109, 0.5);
+    display: inline-block;
+    height: 30px;
+    margin: 0 10px;
+    transform: rotate(-45deg);
+    width: 30px;
+    animation: float 6s ease-in infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    background-color: inherit;
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+}
+
+.heart:before {
+    top: -15px;
+    left: 0;
+}
+
+.heart:after {
+    left: 15px;
+    top: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(-45deg) scale(1);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(-45deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Image Carousel */
+.carousel-item img {
+    height: 400px;
+    object-fit: cover;
+}
+
+/* Button Container for the Question */
+.button-area {
+    height: 200px;
+    /* Defined area for the button to move within initially, but JS will use window */
+    width: 100%;
+}
+
+/* Glass Caption for Carousel */
+.glass-caption {
+    background: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent dark background */
+    backdrop-filter: blur(4px);
+    border-radius: 15px;
+    padding: 10px 20px;
+    bottom: 20px;
+}
